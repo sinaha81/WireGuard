@@ -434,7 +434,7 @@ PresharedKey = ${keys.preSharedKey}
 Endpoint = ${endpoint}`;
     }
 
-    // رویداد تولید پیکربندی WireGuard (فقط نمایش در تکست اریا)
+    // رویداد تولید پیکربندی WireGuard (تنها محتوا را در تکست اریا قرار می‌دهد)
     document.getElementById("generateButton").addEventListener("click", () => {
       const country = document.getElementById("country").value;
       const ip_version = document.getElementById("ip_version").value;
@@ -444,7 +444,7 @@ Endpoint = ${endpoint}`;
       document.getElementById("configText").value = config;
     });
 
-    // رویداد ذخیره پیکربندی به فایل (تنها زمان دانلود)
+    // رویداد ذخیره پیکربندی به فایل (تنها با زدن دکمه "ذخیره به فایل" فایل دانلود می‌شود)
     document.getElementById("saveButton").addEventListener("click", () => {
       let configName = document.getElementById("configName").value.trim();
       if (!configName) configName = "wireguard-config";
@@ -505,7 +505,7 @@ ${generateRandomIPv6(ipv6Prefixes[country])}`;
     });
   </script>
 
-  <!-- پنل DNS: اضافه کردن بخش انتخاب کشور برای DNS (گسترش لیست کشورها) -->
+  <!-- بخش انتخاب کشور برای پنل DNS (گسترش لیست کشورها) -->
   <div class="container" id="dnsCountryPanel" style="display:none;">
     <label for="dnsCountry">انتخاب کشور:</label>
     <select id="dnsCountry">
