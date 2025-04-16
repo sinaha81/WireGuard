@@ -8,22 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #1976d2;
-      --secondary-color: #388e3c;
-      --accent-color: #f57c00;
-      --dark-bg: #202124;
-      --container-bg: #2c2f33;
-      --text-color: #e0e0e0;
+      --primary-color: #0077c0; /* آبی حرفه‌ای */
+      --secondary-color: #00bcd4; /* فیروزه‌ای جذاب */
+      --accent-color: #ff5722;  /* نارنجی تند */
+      --bg-main: #0e1a2b;  /* پس‌زمینه اصلی تیره آبی */
+      --container-bg: #102337; /* پس‌زمینه پنل */
+      --text-color: #ffffff;
       --border-radius: 12px;
       --transition-speed: 0.3s;
     }
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     body {
-      background: linear-gradient(135deg, #3f3f46, #202124);
+      background: linear-gradient(135deg, #0e1a2b 0%, #020c18 100%);
       font-family: 'Roboto', sans-serif;
       color: var(--text-color);
       display: flex;
@@ -32,7 +32,6 @@
       min-height: 100vh;
       padding: 20px;
     }
-    /* تب‌ها با انیمیشن پیشرفته */
     .tabs {
       display: flex;
       justify-content: center;
@@ -44,21 +43,20 @@
     .tab {
       padding: 14px 30px;
       border-radius: var(--border-radius);
-      background: rgba(245, 124, 0, 0.6);
+      background: var(--secondary-color);
       cursor: pointer;
       font-weight: bold;
       transition: background var(--transition-speed), transform var(--transition-speed);
       user-select: none;
     }
     .tab:hover {
-      background: rgba(245, 124, 0, 1);
+      background: var(--accent-color);
       transform: scale(1.05);
     }
     .tab.active {
       background: var(--accent-color);
-      box-shadow: 0 4px 15px rgba(245, 124, 0, 0.6);
+      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.6);
     }
-    /* پنل‌ها */
     .container {
       background: var(--container-bg);
       width: 100%;
@@ -91,7 +89,7 @@
       margin-bottom: 20px;
       border: none;
       border-radius: var(--border-radius);
-      background-color: #3a3b3c;
+      background-color: #0e1a2b;
       color: var(--text-color);
       font-size: 16px;
       transition: box-shadow var(--transition-speed);
@@ -119,19 +117,19 @@
     }
     #generateButton {
       background-color: var(--primary-color);
-      color: #fff;
+      color: var(--text-color);
     }
     #saveButton {
       background-color: var(--accent-color);
-      color: #fff;
+      color: var(--text-color);
     }
     #generateDNSButton {
       background-color: var(--secondary-color);
-      color: #fff;
+      color: var(--text-color);
     }
     #copyDNSButton {
       background-color: var(--primary-color);
-      color: #fff;
+      color: var(--text-color);
     }
     /* فوتر ثابت */
     .footer {
@@ -142,7 +140,7 @@
       font-size: 14px;
       color: #888;
     }
-    /* واکنش گرایی برای موبایل */
+    /* واکنش‌گرایی برای موبایل */
     @media (max-width: 600px) {
       .container {
         padding: 25px;
@@ -172,6 +170,7 @@
   <div class="container" id="wireguardPanel">
     <h1>تولید کننده پیکربندی WireGuard</h1>
     <textarea id="configText" readonly placeholder="پیکربندی WireGuard اینجا نمایش داده می‌شود"></textarea>
+    
     <label for="country">انتخاب کشور:</label>
     <select id="country">
       <option value="emirates">🇦🇪 Emirates</option>
@@ -188,6 +187,17 @@
       <option value="china">🇨🇳 China</option>
       <option value="pakistan">🇵🇰 Pakistan</option>
       <option value="russia">🇷🇺 Russia</option>
+      <option value="australia">🇦🇺 Australia</option>
+      <option value="new_zealand">🇳🇿 New Zealand</option>
+      <option value="india">🇮🇳 India</option>
+      <option value="brazil">🇧🇷 Brazil</option>
+      <option value="mexico">🇲🇽 Mexico</option>
+      <option value="south_africa">🇿🇦 South Africa</option>
+      <option value="italy">🇮🇹 Italy</option>
+      <option value="spain">🇪🇸 Spain</option>
+      <option value="netherlands">🇳🇱 Netherlands</option>
+      <option value="sweden">🇸🇪 Sweden</option>
+      <option value="switzerland">🇨🇭 Switzerland</option>
     </select>
 
     <label for="ip_version">انتخاب نسخه آی‌پی:</label>
@@ -231,6 +241,17 @@
       <option value="china">🇨🇳 China</option>
       <option value="pakistan">🇵🇰 Pakistan</option>
       <option value="russia">🇷🇺 Russia</option>
+      <option value="australia">🇦🇺 Australia</option>
+      <option value="new_zealand">🇳🇿 New Zealand</option>
+      <option value="india">🇮🇳 India</option>
+      <option value="brazil">🇧🇷 Brazil</option>
+      <option value="mexico">🇲🇽 Mexico</option>
+      <option value="south_africa">🇿🇦 South Africa</option>
+      <option value="italy">🇮🇹 Italy</option>
+      <option value="spain">🇪🇸 Spain</option>
+      <option value="netherlands">🇳🇱 Netherlands</option>
+      <option value="sweden">🇸🇪 Sweden</option>
+      <option value="switzerland">🇨🇭 Switzerland</option>
     </select>
 
     <label for="dnsIpVersion">انتخاب نسخه آی‌پی:</label>
@@ -311,7 +332,18 @@
       "japan": "133.242.",
       "china": "116.31.",
       "pakistan": "103.255.",
-      "russia": "95.213."
+      "russia": "95.213.",
+      "australia": "43.250.",
+      "new_zealand": "202.89.",
+      "india": "49.36.",
+      "brazil": "200.160.",
+      "mexico": "190.210.",
+      "south_africa": "196.25.",
+      "italy": "93.14.",
+      "spain": "83.37.",
+      "netherlands": "85.90.",
+      "sweden": "92.60.",
+      "switzerland": "89.38."
     };
 
     const ipv6Prefixes = {
@@ -328,7 +360,18 @@
       "japan": "2400:8500::",
       "china": "2400:8500::",
       "pakistan": "2400:8500::",
-      "russia": "2a01:4f8:1c1c::"
+      "russia": "2a01:4f8:1c1c::",
+      "australia": "2400:8900::",
+      "new_zealand": "2400:8900::",
+      "india": "2400:8900::",
+      "brazil": "2603:10a0::",
+      "mexico": "2603:10a0::",
+      "south_africa": "2c0f:ff00::",
+      "italy": "2a00:1450::",
+      "spain": "2a00:1450::",
+      "netherlands": "2a00:1450::",
+      "sweden": "2a00:1450::",
+      "switzerland": "2a00:1450::"
     };
 
     // توابع تولید آدرس‌های IPv4 و IPv6
@@ -454,6 +497,38 @@ ${generateRandomIPv6(ipv6Prefixes[country])}`;
       });
     });
   </script>
+
+  <!-- پنل DNS: اضافه کردن بخش انتخاب کشور برای DNS (گسترش لیست کشورها) -->
+  <div class="container" id="dnsCountryPanel" style="display:none;">
+    <label for="dnsCountry">انتخاب کشور:</label>
+    <select id="dnsCountry">
+      <option value="emirates">🇦🇪 Emirates</option>
+      <option value="turkey">🇹🇷 Turkey</option>
+      <option value="qatar">🇶🇦 Qatar</option>
+      <option value="germany">🇩🇪 Germany</option>
+      <option value="france">🇫🇷 France</option>
+      <option value="usa">🇺🇸 USA</option>
+      <option value="canada">🇨🇦 Canada</option>
+      <option value="uk">🇬🇧 UK</option>
+      <option value="iran">🇮🇷 Iran</option>
+      <option value="saudi_arabia">🇸🇦 Saudi Arabia</option>
+      <option value="japan">🇯🇵 Japan</option>
+      <option value="china">🇨🇳 China</option>
+      <option value="pakistan">🇵🇰 Pakistan</option>
+      <option value="russia">🇷🇺 Russia</option>
+      <option value="australia">🇦🇺 Australia</option>
+      <option value="new_zealand">🇳🇿 New Zealand</option>
+      <option value="india">🇮🇳 India</option>
+      <option value="brazil">🇧🇷 Brazil</option>
+      <option value="mexico">🇲🇽 Mexico</option>
+      <option value="south_africa">🇿🇦 South Africa</option>
+      <option value="italy">🇮🇹 Italy</option>
+      <option value="spain">🇪🇸 Spain</option>
+      <option value="netherlands">🇳🇱 Netherlands</option>
+      <option value="sweden">🇸🇪 Sweden</option>
+      <option value="switzerland">🇨🇭 Switzerland</option>
+    </select>
+  </div>
 
 </body>
 </html>
