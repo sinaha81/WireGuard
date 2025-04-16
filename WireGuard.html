@@ -296,7 +296,7 @@
       wireguardTab.classList.remove("active");
     });
 
-    // تولید کلیدهای WireGuard با استفاده از Crypto API
+    // تابع تولید کلیدهای WireGuard با استفاده از Crypto API
     function generateWireguardKeys() {
       function getRandomKey() {
         const array = new Uint8Array(32);
@@ -312,7 +312,7 @@
       };
     }
 
-    // تولید عدد تصادفی
+    // تابع تولید عدد تصادفی
     function randomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -434,18 +434,25 @@ PresharedKey = ${keys.preSharedKey}
 Endpoint = ${endpoint}`;
     }
 
-    // رویداد تولید پیکربندی WireGuard
+    // رویداد تولید پیکربندی WireGuard (فقط نمایش در تکست اریا)
     document.getElementById("generateButton").addEventListener("click", () => {
       const country = document.getElementById("country").value;
       const ip_version = document.getElementById("ip_version").value;
       const sim_card = document.getElementById("sim_card").value;
-      let configName = document.getElementById("configName").value.trim();
-      if (!configName) configName = "wireguard-config";
       const config = generateWireguardConfig(country, ip_version, sim_card);
       if (!config) return;
       document.getElementById("configText").value = config;
-      
-      // ذخیره فایل به صورت خودکار (در صورت تمایل)
+    });
+
+    // رویداد ذخیره پیکربندی به فایل (تنها زمان دانلود)
+    document.getElementById("saveButton").addEventListener("click", () => {
+      let configName = document.getElementById("configName").value.trim();
+      if (!configName) configName = "wireguard-config";
+      const config = document.getElementById("configText").value;
+      if (!config.trim()) {
+        alert("ابتدا پیکربندی را تولید کنید.");
+        return;
+      }
       const blob = new Blob([config], { type: "text/plain" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
