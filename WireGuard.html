@@ -12,7 +12,8 @@
       --secondary-color: #00bcd4; /* فیروزه‌ای جذاب */
       --accent-color: #ff5722;  /* نارنجی تند */
       --bg-main: #0e1a2b;  /* پس‌زمینه اصلی تیره آبی */
-      --container-bg: #102337; /* پس‌زمینه پنل */
+      --container-bg: #102337; /* پس‌زمینه پنل عمومی */
+      --wireguard-bg: #0a2342; /* پس‌زمینه آبی تیره برای پنل WireGuard */
       --text-color: #ffffff;
       --border-radius: 12px;
       --transition-speed: 0.3s;
@@ -57,6 +58,7 @@
       background: var(--accent-color);
       box-shadow: 0 4px 15px rgba(255, 87, 34, 0.6);
     }
+    /* پنل عمومی (DNS) */
     .container {
       background: var(--container-bg);
       width: 100%;
@@ -69,6 +71,12 @@
     }
     .container:hover {
       transform: scale(1.01);
+    }
+    /* تنظیمات ویژه برای پنل WireGuard (کمیکوچک‌تر و تم آبی تیره) */
+    #wireguardPanel {
+      background-color: var(--wireguard-bg);
+      max-width: 800px;
+      padding: 20px;
     }
     h1 {
       text-align: center;
@@ -166,7 +174,7 @@
     <div class="tab" id="dnsTab">پنل DNS</div>
   </div>
 
-  <!-- پنل WireGuard -->
+  <!-- پنل WireGuard (کمیکوچک‌تر و تم آبی تیره) -->
   <div class="container" id="wireguardPanel">
     <h1>تولید کننده پیکربندی WireGuard</h1>
     <textarea id="configText" readonly placeholder="پیکربندی WireGuard اینجا نمایش داده می‌شود"></textarea>
